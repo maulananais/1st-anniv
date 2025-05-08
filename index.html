@@ -22,7 +22,17 @@
         </div>
     </div>
 
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false">
+    <a-scene embedded 
+        arjs="sourceType: webcam; 
+              debugUIEnabled: false; 
+              detectionMode: mono_and_matrix;
+              matrixCodeType: 3x3;
+              sourceWidth: 1280;
+              sourceHeight: 960;
+              displayWidth: 1280;
+              displayHeight: 960;"
+        renderer="logarithmicDepthBuffer: true;" 
+        vr-mode-ui="enabled: false">
         <!-- Define the marker -->
         <a-marker preset="hiro">
             <!-- Konfigurasi yang benar untuk gambar PNG dengan transparansi -->
@@ -40,7 +50,7 @@
             </a-entity>
         </a-marker>
         
-        <!-- Add a camera -->
+        <!-- Add a camera with specific parameters -->
         <a-entity camera></a-entity>
     </a-scene>
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Image Display</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Import A-Frame -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- Import AR.js -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+    <!-- Elemen audio untuk memutar lagu -->
+    <audio id="bgMusic" src="lagu.mp3" preload="auto"></audio>
+    
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <h1>AR Image Display</h1>
+            <p>Arahkan kamera ke marker Hiro</p>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false">
+        <!-- Define the marker -->
+        <a-marker preset="hiro">
+            <!-- Konfigurasi yang benar untuk gambar PNG dengan transparansi -->
+            <a-entity position="0 0.5 0">
+                <a-image 
+                    id="overlayImage"
+                    src="images/overlay.png" 
+                    position="0 0 0" 
+                    rotation="0 0 0" 
+                    width="1.5" 
+                    height="1.5" 
+                    material="shader: flat; transparent: true; alphaTest: 0.1; side: double"
+                    animation="property: scale; from: 0.5 0.5 0.5; to: 1 1 1; dur: 1000; easing: easeOutElastic">
+                </a-image>
+            </a-entity>
+        </a-marker>
+        
+        <!-- Add a camera -->
+        <a-entity camera></a-entity>
+    </a-scene>
+
+    <script src="script.js"></script>
+</body>
+</html>

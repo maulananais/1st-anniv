@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNG Test</title>
+    <style>
+        body { background-color: #ccc; padding: 20px; font-family: Arial, sans-serif; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; }
+        img { max-width: 100%; display: block; margin: 20px auto; }
+        .checkerboard { 
+            background-image: linear-gradient(45deg, #808080 25%, transparent 25%), 
+                              linear-gradient(-45deg, #808080 25%, transparent 25%), 
+                              linear-gradient(45deg, transparent 75%, #808080 75%), 
+                              linear-gradient(-45deg, transparent 75%, #808080 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Debug Gambar PNG</h1>
+        
+        <h2>1. Verifikasi Gambar</h2>
+        <p>Gambar berikut harus menampilkan overlay.png dengan latar belakang checkerboard:</p>
+        <div class="checkerboard">
+            <img src="images/overlay.png" alt="Overlay Image">
+        </div>
+        
+        <h2>2. Verifikasi Path</h2>
+        <p>Jika gambar di atas tidak muncul, kemungkinan path file salah.</p>
+        <p>Path yang digunakan: <code>images/overlay.png</code></p>
+        <p>Path lengkap seharusnya: <code>/public/images/overlay.png</code></p>
+        
+        <h3>Checklist:</h3>
+        <ul>
+            <li>Pastikan file berada di lokasi yang benar</li>
+            <li>Periksa ekstensi file (.png)</li>
+            <li>Periksa nama file (perhatikan huruf besar/kecil)</li>
+            <li>Pastikan format PNG mendukung transparansi</li>
+        </ul>
+        
+        <p>Jika gambar muncul dengan benar di halaman ini tapi tidak di AR, maka masalahnya ada pada konfigurasi AR.js.</p>
+    </div>
+</body>
+</html>
